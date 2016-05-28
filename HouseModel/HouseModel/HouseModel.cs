@@ -70,9 +70,9 @@ namespace House
             var PeakLength = _houseProperties.GetParameter(ParameterType.PeakLength).Value;
 
 
-            double smeshX = 10;
-            double smeshY = 230;
 
+            double smeshY;
+            double smeshX;
             HouseWidth = 400;
             HouseLength = 100;
             int DoorDistance = 20;
@@ -83,8 +83,11 @@ namespace House
             int WindowsRow; 
 
             HouseHeight = (WindowHeight + WindowDistanceVer)*FloorsCount + DoorHeight + DoorDistance + PeakHeight + LowDistance;
-            WindowsRow = Convert.ToInt32(HouseWidth/((WindowWidth + WindowDistanceHor) + WindowDistanceHor));
-          
+            WindowsRow = Convert.ToInt32(HouseWidth/(WindowWidth + WindowDistanceHor));
+
+            smeshY = HouseHeight - WindowDistanceVer;
+            smeshX = WindowDistanceHor/2;
+
             _api.MakeNewWorkingPlane(3, 0);
             _api.DrawRectangle(0, 0, HouseWidth, HouseHeight);
 
@@ -92,11 +95,11 @@ namespace House
             {
                 for (int j = 0; j < WindowsRow; j++)
                 {
-                    _api.DrawRectangle(smeshX, smeshY, smeshX + 20, smeshY - 20);
-                    smeshX += 40;
+                    _api.DrawRectangle(smeshX, smeshY, smeshX + WindowWidth, smeshY - WindowHeight);
+                    smeshX += WindowWidth + WindowDistanceHor;
                 }
-                smeshX = 10;
-                smeshY -= 40;
+                smeshX = WindowDistanceHor / 2;
+                smeshY -= WindowHeight + WindowDistanceVer;
             }
             _api.Extrude(HouseLength);
            
