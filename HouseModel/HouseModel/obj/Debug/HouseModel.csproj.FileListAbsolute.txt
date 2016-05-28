@@ -1,0 +1,9 @@
+c:\users\арсен\documents\visual studio 2013\Projects\HouseModel\HouseModel\bin\Debug\HouseModel.exe.config
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\HouseModel.csprojResolveAssemblyReference.cache
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\House.HouseForm.resources
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\HouseModel.Properties.Resources.resources
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\HouseModel.csproj.GenerateResource.Cache
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\bin\Debug\HouseModel.exe
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\bin\Debug\HouseModel.pdb
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\HouseModel.exe
+C:\Users\Арсен\Documents\Visual Studio 2013\Projects\HouseModel\HouseModel\obj\Debug\HouseModel.pdb
