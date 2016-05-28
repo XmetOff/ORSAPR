@@ -34,7 +34,7 @@ namespace House
                 {ParameterType.BalconWidth, new Parameter(55.25, 85.0, 114.75)},
                 {ParameterType.DoorHeight, new Parameter(25, 20, 30)},
                 {ParameterType.DoorWidth, new Parameter(20, 20, 25)},
-                {ParameterType.PeakLength, new Parameter(55.25, 85.0, 114.75)}
+                {ParameterType.PeakLength, new Parameter(10, 5, 15)}
             };
         }
 

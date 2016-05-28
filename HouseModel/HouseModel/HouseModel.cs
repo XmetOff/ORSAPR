@@ -135,9 +135,9 @@ namespace House
             _api.CutExtrudeRectangle(HouseWidth/2 - DoorWidth/2, DoorHeight + LowDistance, HouseWidth/2 + DoorWidth/2,LowDistance,5);
 
             // Козырек
-            _api.MakeNewWorkingPlane(3, -10);
-            _api.DrawRectangle(85, 30, 115, 32);
-            _api.Extrude(10);
+            _api.MakeNewWorkingPlane(3, -PeakLength);
+            _api.DrawRectangle(HouseWidth / 2 - DoorWidth / 2 - 2, DoorHeight + LowDistance + 2, HouseWidth / 2 + DoorWidth / 2 + 2, DoorHeight + LowDistance);
+            _api.Extrude(PeakLength);
 
             // Балконы
 
