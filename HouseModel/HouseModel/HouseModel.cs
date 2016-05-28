@@ -102,10 +102,10 @@ namespace House
                 smeshY -= WindowHeight + WindowDistanceVer;
             }
             _api.Extrude(HouseLength);
-           
 
-            smeshX = 10;
-            smeshY = 230;
+
+            smeshY = HouseHeight - WindowDistanceVer;
+            smeshX = WindowDistanceHor / 2;
 
             _api.MakeNewWorkingPlane(3, 5);
 
@@ -125,15 +125,16 @@ namespace House
 
             // Крыша
             _api.MakeNewWorkingPlane(1, -5);
-            _api.DrawLine(250, -5, 250, 105);
-            _api.DrawLine(280,50);
+            _api.DrawLine(HouseHeight, -5, HouseHeight, HouseLength+5);
+            _api.DrawLine(HouseHeight+30,HouseLength/2);
             _api.CloseShape();
-            _api.Extrude(410);
+            _api.Extrude(HouseWidth + 10);
             
-
+            /*
             _api.MakeNewWorkingPlane(3, 0);
             _api.CutExtrudeCircle(0,280,54,110);
             _api.CutExtrudeCircle(400, 280, 54, 110);
+            */
             
             // Дверь
 
