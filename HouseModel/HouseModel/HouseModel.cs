@@ -128,17 +128,11 @@ namespace House
             _api.DrawLine(HouseHeight, -5, HouseHeight, HouseLength+5);
             _api.DrawLine(HouseHeight+30,HouseLength/2);
             _api.CloseShape();
-            _api.Extrude(HouseWidth + 10);
-            
-            /*
-            _api.MakeNewWorkingPlane(3, 0);
-            _api.CutExtrudeCircle(0,280,54,110);
-            _api.CutExtrudeCircle(400, 280, 54, 110);
-            */
+            _api.Extrude(HouseWidth+5);
             
             // Дверь
-
-            _api.CutExtrudeRectangle(90,30,110,5,5);
+            _api.MakeNewWorkingPlane(3,0);
+            _api.CutExtrudeRectangle(HouseWidth/2 - DoorWidth/2, DoorHeight + LowDistance, HouseWidth/2 + DoorWidth/2,LowDistance,5);
 
             // Козырек
             _api.MakeNewWorkingPlane(3, -10);
