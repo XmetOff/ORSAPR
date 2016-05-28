@@ -51,11 +51,11 @@ namespace House
         public void Build(HouseProperties houseProperties)
         {
             if (houseProperties == null) throw new AccessingNullException();
-            const int stepCount = 1;
+            //const int stepCount = 1;
 
-            ProgressBar progressBar = InventorApplication.CreateProgressBar(false, stepCount, "Построение жилого дома");
-            progressBar.Message = @"Создание основной модели, пожалуйста подождите";
-            progressBar.UpdateProgress();
+            //ProgressBar progressBar = InventorApplication.CreateProgressBar(false, stepCount, "Построение жилого дома");
+            //progressBar.Message = @"Создание основной модели, пожалуйста подождите";
+            //progressBar.UpdateProgress();
             BuildHouse();
         }
 

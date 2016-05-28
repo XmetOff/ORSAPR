@@ -55,7 +55,6 @@
             this.PeakLength = new House.ParameterObjectControl();
             this.DoorWidth = new House.ParameterObjectControl();
             this.DoorHeight = new House.ParameterObjectControl();
-
             this.SuspendLayout();
             // 
             // BuildHouseButton
@@ -187,99 +186,111 @@
             // 
             this.HouseWidth.Location = new System.Drawing.Point(165, 22);
             this.HouseWidth.Name = "HouseWidth";
-            this.HouseWidth.Size = new System.Drawing.Size(97, 20);
+            this.HouseWidth.Parameter = null;
+            this.HouseWidth.Size = new System.Drawing.Size(110, 26);
             this.HouseWidth.TabIndex = 27;
-
             // 
             // HouseLength
             // 
             this.HouseLength.Location = new System.Drawing.Point(165, 48);
             this.HouseLength.Name = "HouseLength";
-            this.HouseLength.Size = new System.Drawing.Size(97, 20);
+            this.HouseLength.Parameter = null;
+            this.HouseLength.Size = new System.Drawing.Size(110, 27);
             this.HouseLength.TabIndex = 28;
             // 
             // FloorsCount
             // 
             this.FloorsCount.Location = new System.Drawing.Point(165, 74);
             this.FloorsCount.Name = "FloorsCount";
-            this.FloorsCount.Size = new System.Drawing.Size(97, 20);
+            this.FloorsCount.Parameter = null;
+            this.FloorsCount.Size = new System.Drawing.Size(110, 28);
             this.FloorsCount.TabIndex = 29;
             // 
             // WindowHeight
             // 
             this.WindowHeight.Location = new System.Drawing.Point(165, 100);
             this.WindowHeight.Name = "WindowHeight";
-            this.WindowHeight.Size = new System.Drawing.Size(97, 20);
+            this.WindowHeight.Parameter = null;
+            this.WindowHeight.Size = new System.Drawing.Size(110, 27);
             this.WindowHeight.TabIndex = 30;
             // 
             // WindowWidth
             // 
             this.WindowWidth.Location = new System.Drawing.Point(165, 126);
             this.WindowWidth.Name = "WindowWidth";
-            this.WindowWidth.Size = new System.Drawing.Size(97, 20);
+            this.WindowWidth.Parameter = null;
+            this.WindowWidth.Size = new System.Drawing.Size(110, 27);
             this.WindowWidth.TabIndex = 31;
             // 
             // WindowDistanceHor
             // 
             this.WindowDistanceHor.Location = new System.Drawing.Point(165, 152);
             this.WindowDistanceHor.Name = "WindowDistanceHor";
-            this.WindowDistanceHor.Size = new System.Drawing.Size(97, 20);
+            this.WindowDistanceHor.Parameter = null;
+            this.WindowDistanceHor.Size = new System.Drawing.Size(110, 29);
             this.WindowDistanceHor.TabIndex = 32;
             // 
             // WindowDistanceVer
             // 
             this.WindowDistanceVer.Location = new System.Drawing.Point(165, 178);
             this.WindowDistanceVer.Name = "WindowDistanceVer";
-            this.WindowDistanceVer.Size = new System.Drawing.Size(97, 20);
+            this.WindowDistanceVer.Parameter = null;
+            this.WindowDistanceVer.Size = new System.Drawing.Size(110, 28);
             this.WindowDistanceVer.TabIndex = 33;
             // 
             // BalconHeight
             // 
             this.BalconHeight.Location = new System.Drawing.Point(165, 204);
             this.BalconHeight.Name = "BalconHeight";
-            this.BalconHeight.Size = new System.Drawing.Size(97, 20);
+            this.BalconHeight.Parameter = null;
+            this.BalconHeight.Size = new System.Drawing.Size(110, 30);
             this.BalconHeight.TabIndex = 34;
-            // 
-            // BalconWidth
-            // 
-            this.BalconWidth.Location = new System.Drawing.Point(165, 231);
-            this.BalconWidth.Name = "BalconWidth";
-            this.BalconWidth.Size = new System.Drawing.Size(97, 20);
-            this.BalconWidth.TabIndex = 35;
             // 
             // BalconLength
             // 
             this.BalconLength.Location = new System.Drawing.Point(165, 256);
             this.BalconLength.Name = "BalconLength";
-            this.BalconLength.Size = new System.Drawing.Size(97, 20);
+            this.BalconLength.Parameter = null;
+            this.BalconLength.Size = new System.Drawing.Size(110, 27);
             this.BalconLength.TabIndex = 36;
             // 
-            // DoorHeight
+            // BalconWidth
             // 
-            this.DoorHeight.Location = new System.Drawing.Point(165, 282);
-            this.DoorHeight.Name = "DoorHeight";
-            this.DoorHeight.Size = new System.Drawing.Size(97, 20);
-            this.DoorHeight.TabIndex = 37;
-            // 
-            // DoorWidth
-            // 
-            this.DoorWidth.Location = new System.Drawing.Point(165, 308);
-            this.DoorWidth.Name = "DoorWidth";
-            this.DoorWidth.Size = new System.Drawing.Size(97, 20);
-            this.DoorWidth.TabIndex = 38;
+            this.BalconWidth.Location = new System.Drawing.Point(165, 231);
+            this.BalconWidth.Name = "BalconWidth";
+            this.BalconWidth.Parameter = null;
+            this.BalconWidth.Size = new System.Drawing.Size(110, 26);
+            this.BalconWidth.TabIndex = 35;
             // 
             // PeakLength
             // 
             this.PeakLength.Location = new System.Drawing.Point(165, 334);
             this.PeakLength.Name = "PeakLength";
-            this.PeakLength.Size = new System.Drawing.Size(97, 20);
+            this.PeakLength.Parameter = null;
+            this.PeakLength.Size = new System.Drawing.Size(110, 30);
             this.PeakLength.TabIndex = 39;
+            // 
+            // DoorWidth
+            // 
+            this.DoorWidth.Location = new System.Drawing.Point(165, 308);
+            this.DoorWidth.Name = "DoorWidth";
+            this.DoorWidth.Parameter = null;
+            this.DoorWidth.Size = new System.Drawing.Size(110, 25);
+            this.DoorWidth.TabIndex = 38;
+            // 
+            // DoorHeight
+            // 
+            this.DoorHeight.Location = new System.Drawing.Point(165, 282);
+            this.DoorHeight.Name = "DoorHeight";
+            this.DoorHeight.Parameter = null;
+            this.DoorHeight.Size = new System.Drawing.Size(110, 27);
+            this.DoorHeight.TabIndex = 37;
             // 
             // HouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 426);
+            this.ClientSize = new System.Drawing.Size(280, 426);
             this.Controls.Add(this.PeakLength);
             this.Controls.Add(this.DoorWidth);
             this.Controls.Add(this.DoorHeight);
@@ -309,19 +320,6 @@
             this.Controls.Add(this.BuildHouseButton);
             this.Name = "HouseForm";
             this.Text = "Жилой дом";
-            ((System.ComponentModel.ISupportInitialize)(this.HouseWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HouseLength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FloorsCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WindowHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WindowWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WindowDistanceHor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.WindowDistanceVer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BalconHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BalconWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BalconLength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DoorHeight)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DoorWidth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PeakLength)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

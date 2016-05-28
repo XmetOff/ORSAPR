@@ -45,7 +45,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.numericUpDown1);
             this.Name = "ParameterObjectControl";
-            this.Size = new System.Drawing.Size(126, 24);
+            this.Size = new System.Drawing.Size(106, 24);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 

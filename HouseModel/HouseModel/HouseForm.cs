@@ -34,7 +34,7 @@ namespace House
         /// </summary>
         private void InitParameters()
         {
-            HouseWidth.Parameter = _houseProperties.GetParameter(ParameterType.HouseLength);
+            HouseWidth.Parameter = _houseProperties.GetParameter(ParameterType.HouseWidth);
             HouseLength.Parameter = _houseProperties.GetParameter(ParameterType.HouseLength);
             FloorsCount.Parameter = _houseProperties.GetParameter(ParameterType.FloorsCount);
             WindowHeight.Parameter = _houseProperties.GetParameter(ParameterType.WindowHeight);
