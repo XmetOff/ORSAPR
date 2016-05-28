@@ -109,17 +109,17 @@ namespace House
 
             _api.MakeNewWorkingPlane(3, 5);
 
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < FloorsCount; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < WindowsRow; j++)
                 {
-                    _api.DrawRectangle(smeshX, smeshY, smeshX + 20, smeshY - 20);
-                    smeshX += 40;
+                    _api.DrawRectangle(smeshX, smeshY, smeshX + WindowWidth, smeshY - WindowHeight);
+                    smeshX += WindowWidth + WindowDistanceHor;
                 }
-                smeshX = 10;
-                smeshY -= 40;
+                smeshX = WindowDistanceHor / 2;
+                smeshY -= WindowHeight + WindowDistanceVer;
             }
-            _api.Extrude(90);
+            _api.Extrude(HouseLength-10);
 
             
 
