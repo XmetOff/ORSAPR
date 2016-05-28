@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using HouseModel;
 using Inventor;
 
 namespace House
@@ -9,9 +10,14 @@ namespace House
     /// <summary>
     /// Класс инкапсулирует модель, вызывает построение модели
     /// </summary>
-    public class ValModel
+    public class HouseModel
     {
         #region Fields
+
+        /// <summary>
+        /// Ссылка на приложение Инвентора
+        /// </summary>
+        public Application InventorApplication { get; set; }
 
         /// <summary>
         /// Параметры модели
@@ -32,21 +38,25 @@ namespace House
         /// </summary>
         /// <param name="houseProperties">Параметры модели</param>
         /// <param name="inventorApi"></param>
-        public ValModel(HouseProperties houseProperties, InventorApi inventorApi)
+        public HouseModel(HouseProperties houseProperties, InventorApi inventorApi)
         {
             _houseProperties = houseProperties;
             _api = inventorApi;
+            InventorApplication = inventorApi.InventorApplication;
         }
 
         /// <summary>
         /// Функция строит модель
         /// </summary>
-        public void Build()
+        public void Build(HouseProperties houseProperties)
         {
+            if (houseProperties == null) throw new AccessingNullException();
+            const int stepCount = 1;
 
+            ProgressBar progressBar = InventorApplication.CreateProgressBar(false, stepCount, "Построение жилого дома");
+            progressBar.Message = @"Создание основной модели, пожалуйста подождите";
+            progressBar.UpdateProgress();
             BuildHouse();
-            //BuildGroove();
-            //   BuildKeyway();
         }
 
         /// <summary>
@@ -69,15 +79,15 @@ namespace House
             var DoorWidth = _houseProperties.GetParameter(ParameterType.DoorWidth).Value;
             var PeakLength = _houseProperties.GetParameter(ParameterType.PeakLength).Value;
 
-
-
+            int BalconRow;
+            double xPoint;
+            double yPoint;
             double smeshY;
             double smeshX;
             HouseWidth = 400;
             HouseLength = 100;
             int DoorDistance = 20;
             int PeakHeight = 2;
-            int PeakWidth = 10;
             int LowDistance = 5;
             double HouseHeight;
             int WindowsRow; 
@@ -128,7 +138,7 @@ namespace House
             _api.DrawLine(HouseHeight, -5, HouseHeight, HouseLength+5);
             _api.DrawLine(HouseHeight+30,HouseLength/2);
             _api.CloseShape();
-            _api.Extrude(HouseWidth+5);
+            _api.Extrude(HouseWidth + 5);
             
             // Дверь
             _api.MakeNewWorkingPlane(3,0);
@@ -136,25 +146,30 @@ namespace House
 
             // Козырек
             _api.MakeNewWorkingPlane(3, -PeakLength);
-            _api.DrawRectangle(HouseWidth / 2 - DoorWidth / 2 - 2, DoorHeight + LowDistance + 2, HouseWidth / 2 + DoorWidth / 2 + 2, DoorHeight + LowDistance);
+            _api.DrawRectangle(HouseWidth / 2 - DoorWidth / 2 - PeakHeight, DoorHeight + LowDistance + 2, HouseWidth / 2 + DoorWidth / 2 + PeakHeight, DoorHeight + LowDistance);
             _api.Extrude(PeakLength);
 
             // Балконы
 
-            int xPoint = 80;
-            int xStep = 0;
-            int yPoint = 220;
-            int yStep = 0;
+            /*
+            double xStep = 0;
+            double yStep = 0;
 
-            _api.MakeNewWorkingPlane(3, -10);
-            for (int j = 0; j<3; j++)
+            BalconRow = Convert.ToInt32(WindowsRow/3);
+
+            xPoint = (WindowDistanceHor + WindowWidth) * 2;
+            yPoint = (HouseHeight - WindowDistanceVer - WindowHeight/2);
+
+
+            _api.MakeNewWorkingPlane(3, -BalconLength);
+            for (int j = 0; j < BalconRow; j++)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < FloorsCount; i++)
                 {
-                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + 40 + xStep, yPoint - 20 - yStep);
-                    yStep += 40;
+                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + BalconWidth + xStep, yPoint - BalconHeight - yStep);
+                    yStep += WindowDistanceVer + WindowHeight;
                 }
-                xStep += 120;
+                xStep += (WindowDistanceHor + WindowWidth) * 3;
                 yStep = 0;
             }
             _api.Extrude(2);
@@ -200,7 +215,7 @@ namespace House
 
             _api.Extrude(10);
             _api.ChangeMaterial(@"Серебро");
-
+            */
 
             #endregion
         }

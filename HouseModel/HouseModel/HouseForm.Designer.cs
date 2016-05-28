@@ -29,32 +29,33 @@
         private void InitializeComponent()
         {
             this.BuildHouseButton = new System.Windows.Forms.Button();
-            this.HouseWidth = new System.Windows.Forms.DomainUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.HouseLength = new System.Windows.Forms.DomainUpDown();
-            this.FloorCount = new System.Windows.Forms.DomainUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.WindowDistanceHor = new System.Windows.Forms.DomainUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.WindowDistanceVer = new System.Windows.Forms.DomainUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.WindowHeight = new System.Windows.Forms.DomainUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.WindowWidth = new System.Windows.Forms.DomainUpDown();
-            this.BalconHeight = new System.Windows.Forms.DomainUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.BalconWidth = new System.Windows.Forms.DomainUpDown();
-            this.BalconLength = new System.Windows.Forms.DomainUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.DoorHeight = new System.Windows.Forms.DomainUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.PeakLength = new System.Windows.Forms.DomainUpDown();
             this.label12 = new System.Windows.Forms.Label();
-            this.DoorWidth = new System.Windows.Forms.DomainUpDown();
             this.label13 = new System.Windows.Forms.Label();
+            this.HouseWidth = new House.ParameterObjectControl();
+            this.HouseLength = new House.ParameterObjectControl();
+            this.FloorsCount = new House.ParameterObjectControl();
+            this.WindowHeight = new House.ParameterObjectControl();
+            this.WindowWidth = new House.ParameterObjectControl();
+            this.WindowDistanceHor = new House.ParameterObjectControl();
+            this.WindowDistanceVer = new House.ParameterObjectControl();
+            this.BalconHeight = new House.ParameterObjectControl();
+            this.BalconLength = new House.ParameterObjectControl();
+            this.BalconWidth = new House.ParameterObjectControl();
+            this.PeakLength = new House.ParameterObjectControl();
+            this.DoorWidth = new House.ParameterObjectControl();
+            this.DoorHeight = new House.ParameterObjectControl();
+
             this.SuspendLayout();
             // 
             // BuildHouseButton
@@ -66,14 +67,6 @@
             this.BuildHouseButton.Text = "Построить дом";
             this.BuildHouseButton.UseVisualStyleBackColor = true;
             this.BuildHouseButton.Click += new System.EventHandler(this.buildHouseButton_Click);
-            // 
-            // HouseWidth
-            // 
-            this.HouseWidth.Location = new System.Drawing.Point(165, 22);
-            this.HouseWidth.Name = "HouseWidth";
-            this.HouseWidth.Size = new System.Drawing.Size(97, 20);
-            this.HouseWidth.TabIndex = 1;
-            this.HouseWidth.Text = "0";
             // 
             // label1
             // 
@@ -93,22 +86,6 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Длина дома";
             // 
-            // HouseLength
-            // 
-            this.HouseLength.Location = new System.Drawing.Point(165, 48);
-            this.HouseLength.Name = "HouseLength";
-            this.HouseLength.Size = new System.Drawing.Size(97, 20);
-            this.HouseLength.TabIndex = 4;
-            this.HouseLength.Text = "0";
-            // 
-            // FloorCount
-            // 
-            this.FloorCount.Location = new System.Drawing.Point(165, 74);
-            this.FloorCount.Name = "FloorCount";
-            this.FloorCount.Size = new System.Drawing.Size(97, 20);
-            this.FloorCount.TabIndex = 5;
-            this.FloorCount.Text = "0";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -117,14 +94,6 @@
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Количество этажей";
-            // 
-            // WindowDistanceHor
-            // 
-            this.WindowDistanceHor.Location = new System.Drawing.Point(165, 152);
-            this.WindowDistanceHor.Name = "WindowDistanceHor";
-            this.WindowDistanceHor.Size = new System.Drawing.Size(97, 20);
-            this.WindowDistanceHor.TabIndex = 7;
-            this.WindowDistanceHor.Text = "0";
             // 
             // label4
             // 
@@ -142,14 +111,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Расстояние между окнами по вертикали";
             // 
-            // WindowDistanceVer
-            // 
-            this.WindowDistanceVer.Location = new System.Drawing.Point(165, 178);
-            this.WindowDistanceVer.Name = "WindowDistanceVer";
-            this.WindowDistanceVer.Size = new System.Drawing.Size(97, 20);
-            this.WindowDistanceVer.TabIndex = 10;
-            this.WindowDistanceVer.Text = "0";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -159,14 +120,6 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Высота окна";
             // 
-            // WindowHeight
-            // 
-            this.WindowHeight.Location = new System.Drawing.Point(165, 100);
-            this.WindowHeight.Name = "WindowHeight";
-            this.WindowHeight.Size = new System.Drawing.Size(97, 20);
-            this.WindowHeight.TabIndex = 12;
-            this.WindowHeight.Text = "0";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -175,22 +128,6 @@
             this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 13;
             this.label7.Text = "Ширина окна";
-            // 
-            // WindowWidth
-            // 
-            this.WindowWidth.Location = new System.Drawing.Point(165, 126);
-            this.WindowWidth.Name = "WindowWidth";
-            this.WindowWidth.Size = new System.Drawing.Size(97, 20);
-            this.WindowWidth.TabIndex = 14;
-            this.WindowWidth.Text = "0";
-            // 
-            // BalconHeight
-            // 
-            this.BalconHeight.Location = new System.Drawing.Point(165, 204);
-            this.BalconHeight.Name = "BalconHeight";
-            this.BalconHeight.Size = new System.Drawing.Size(97, 20);
-            this.BalconHeight.TabIndex = 15;
-            this.BalconHeight.Text = "0";
             // 
             // label8
             // 
@@ -210,22 +147,6 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Ширина балкона";
             // 
-            // BalconWidth
-            // 
-            this.BalconWidth.Location = new System.Drawing.Point(165, 230);
-            this.BalconWidth.Name = "BalconWidth";
-            this.BalconWidth.Size = new System.Drawing.Size(97, 20);
-            this.BalconWidth.TabIndex = 18;
-            this.BalconWidth.Text = "0";
-            // 
-            // BalconLength
-            // 
-            this.BalconLength.Location = new System.Drawing.Point(165, 256);
-            this.BalconLength.Name = "BalconLength";
-            this.BalconLength.Size = new System.Drawing.Size(97, 20);
-            this.BalconLength.TabIndex = 19;
-            this.BalconLength.Text = "0";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -234,14 +155,6 @@
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 20;
             this.label10.Text = "Длина балкона";
-            // 
-            // DoorHeight
-            // 
-            this.DoorHeight.Location = new System.Drawing.Point(165, 282);
-            this.DoorHeight.Name = "DoorHeight";
-            this.DoorHeight.Size = new System.Drawing.Size(97, 20);
-            this.DoorHeight.TabIndex = 21;
-            this.DoorHeight.Text = "0";
             // 
             // label11
             // 
@@ -252,14 +165,6 @@
             this.label11.TabIndex = 22;
             this.label11.Text = "Высота двери";
             // 
-            // PeakLength
-            // 
-            this.PeakLength.Location = new System.Drawing.Point(165, 334);
-            this.PeakLength.Name = "PeakLength";
-            this.PeakLength.Size = new System.Drawing.Size(97, 20);
-            this.PeakLength.TabIndex = 23;
-            this.PeakLength.Text = "0";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -268,14 +173,6 @@
             this.label12.Size = new System.Drawing.Size(93, 13);
             this.label12.TabIndex = 24;
             this.label12.Text = "Длина козырька";
-            // 
-            // DoorWidth
-            // 
-            this.DoorWidth.Location = new System.Drawing.Point(165, 308);
-            this.DoorWidth.Name = "DoorWidth";
-            this.DoorWidth.Size = new System.Drawing.Size(97, 20);
-            this.DoorWidth.TabIndex = 25;
-            this.DoorWidth.Text = "0";
             // 
             // label13
             // 
@@ -286,41 +183,145 @@
             this.label13.TabIndex = 26;
             this.label13.Text = "Ширина двери";
             // 
+            // HouseWidth
+            // 
+            this.HouseWidth.Location = new System.Drawing.Point(165, 22);
+            this.HouseWidth.Name = "HouseWidth";
+            this.HouseWidth.Size = new System.Drawing.Size(97, 20);
+            this.HouseWidth.TabIndex = 27;
+
+            // 
+            // HouseLength
+            // 
+            this.HouseLength.Location = new System.Drawing.Point(165, 48);
+            this.HouseLength.Name = "HouseLength";
+            this.HouseLength.Size = new System.Drawing.Size(97, 20);
+            this.HouseLength.TabIndex = 28;
+            // 
+            // FloorsCount
+            // 
+            this.FloorsCount.Location = new System.Drawing.Point(165, 74);
+            this.FloorsCount.Name = "FloorsCount";
+            this.FloorsCount.Size = new System.Drawing.Size(97, 20);
+            this.FloorsCount.TabIndex = 29;
+            // 
+            // WindowHeight
+            // 
+            this.WindowHeight.Location = new System.Drawing.Point(165, 100);
+            this.WindowHeight.Name = "WindowHeight";
+            this.WindowHeight.Size = new System.Drawing.Size(97, 20);
+            this.WindowHeight.TabIndex = 30;
+            // 
+            // WindowWidth
+            // 
+            this.WindowWidth.Location = new System.Drawing.Point(165, 126);
+            this.WindowWidth.Name = "WindowWidth";
+            this.WindowWidth.Size = new System.Drawing.Size(97, 20);
+            this.WindowWidth.TabIndex = 31;
+            // 
+            // WindowDistanceHor
+            // 
+            this.WindowDistanceHor.Location = new System.Drawing.Point(165, 152);
+            this.WindowDistanceHor.Name = "WindowDistanceHor";
+            this.WindowDistanceHor.Size = new System.Drawing.Size(97, 20);
+            this.WindowDistanceHor.TabIndex = 32;
+            // 
+            // WindowDistanceVer
+            // 
+            this.WindowDistanceVer.Location = new System.Drawing.Point(165, 178);
+            this.WindowDistanceVer.Name = "WindowDistanceVer";
+            this.WindowDistanceVer.Size = new System.Drawing.Size(97, 20);
+            this.WindowDistanceVer.TabIndex = 33;
+            // 
+            // BalconHeight
+            // 
+            this.BalconHeight.Location = new System.Drawing.Point(165, 204);
+            this.BalconHeight.Name = "BalconHeight";
+            this.BalconHeight.Size = new System.Drawing.Size(97, 20);
+            this.BalconHeight.TabIndex = 34;
+            // 
+            // BalconWidth
+            // 
+            this.BalconWidth.Location = new System.Drawing.Point(165, 231);
+            this.BalconWidth.Name = "BalconWidth";
+            this.BalconWidth.Size = new System.Drawing.Size(97, 20);
+            this.BalconWidth.TabIndex = 35;
+            // 
+            // BalconLength
+            // 
+            this.BalconLength.Location = new System.Drawing.Point(165, 256);
+            this.BalconLength.Name = "BalconLength";
+            this.BalconLength.Size = new System.Drawing.Size(97, 20);
+            this.BalconLength.TabIndex = 36;
+            // 
+            // DoorHeight
+            // 
+            this.DoorHeight.Location = new System.Drawing.Point(165, 282);
+            this.DoorHeight.Name = "DoorHeight";
+            this.DoorHeight.Size = new System.Drawing.Size(97, 20);
+            this.DoorHeight.TabIndex = 37;
+            // 
+            // DoorWidth
+            // 
+            this.DoorWidth.Location = new System.Drawing.Point(165, 308);
+            this.DoorWidth.Name = "DoorWidth";
+            this.DoorWidth.Size = new System.Drawing.Size(97, 20);
+            this.DoorWidth.TabIndex = 38;
+            // 
+            // PeakLength
+            // 
+            this.PeakLength.Location = new System.Drawing.Point(165, 334);
+            this.PeakLength.Name = "PeakLength";
+            this.PeakLength.Size = new System.Drawing.Size(97, 20);
+            this.PeakLength.TabIndex = 39;
+            // 
             // HouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 426);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.DoorWidth);
-            this.Controls.Add(this.label12);
             this.Controls.Add(this.PeakLength);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.DoorWidth);
             this.Controls.Add(this.DoorHeight);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.BalconLength);
             this.Controls.Add(this.BalconWidth);
+            this.Controls.Add(this.BalconHeight);
+            this.Controls.Add(this.WindowDistanceVer);
+            this.Controls.Add(this.WindowDistanceHor);
+            this.Controls.Add(this.WindowWidth);
+            this.Controls.Add(this.WindowHeight);
+            this.Controls.Add(this.FloorsCount);
+            this.Controls.Add(this.HouseLength);
+            this.Controls.Add(this.HouseWidth);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.BalconHeight);
-            this.Controls.Add(this.WindowWidth);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.WindowHeight);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.WindowDistanceVer);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.WindowDistanceHor);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.FloorCount);
-            this.Controls.Add(this.HouseLength);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.HouseWidth);
             this.Controls.Add(this.BuildHouseButton);
             this.Name = "HouseForm";
             this.Text = "Жилой дом";
-            this.Load += new System.EventHandler(this.HouseForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.HouseWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HouseLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FloorsCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowDistanceHor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WindowDistanceVer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BalconHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BalconWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BalconLength)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DoorHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DoorWidth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PeakLength)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,32 +330,32 @@
         #endregion
 
         private System.Windows.Forms.Button BuildHouseButton;
-        private System.Windows.Forms.DomainUpDown HouseWidth;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DomainUpDown HouseLength;
-        private System.Windows.Forms.DomainUpDown FloorCount;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DomainUpDown WindowDistanceHor;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DomainUpDown WindowDistanceVer;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DomainUpDown WindowHeight;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DomainUpDown WindowWidth;
-        private System.Windows.Forms.DomainUpDown BalconHeight;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DomainUpDown BalconWidth;
-        private System.Windows.Forms.DomainUpDown BalconLength;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DomainUpDown DoorHeight;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DomainUpDown PeakLength;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DomainUpDown DoorWidth;
         private System.Windows.Forms.Label label13;
+        private ParameterObjectControl HouseWidth;
+        private ParameterObjectControl HouseLength;
+        private ParameterObjectControl FloorsCount;
+        private ParameterObjectControl WindowHeight;
+        private ParameterObjectControl WindowWidth;
+        private ParameterObjectControl WindowDistanceHor;
+        private ParameterObjectControl WindowDistanceVer;
+        private ParameterObjectControl BalconHeight;
+        private ParameterObjectControl BalconWidth;
+        private ParameterObjectControl BalconLength;
+        private ParameterObjectControl DoorHeight;
+        private ParameterObjectControl DoorWidth;
+        private ParameterObjectControl PeakLength;
     }
 }
 

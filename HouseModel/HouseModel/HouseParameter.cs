@@ -1,11 +1,12 @@
 ﻿using System;
+using HouseModel;
 
 namespace House
 {
     /// <summary>
     /// Класс хранит значение и ограничения
     /// </summary>
-    public class Parameter
+    public class HouseParameter
     {
         #region Fields
 
@@ -40,21 +41,14 @@ namespace House
             get { return _value; }
             set
             {
-                if (_value == value)
+                if (Equals(_value, value) & (value > 0))
                     return;
-                GetValue(value, out _value);
+                _value = value;
+                Validate();
+                ParameterChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
-        private void GetValue(double value, out double finalValue)
-        {
-            finalValue = value;
-            Validate();
-            if (ParameterChanged != null)
-            {
-                ParameterChanged(this, EventArgs.Empty);
-            }
-        }
 
         /// <summary>
         /// Сеттер и геттер минимального значения
@@ -64,9 +58,11 @@ namespace House
             get { return _min; }
             set
             {
-                if (_min == value)
+                if (Equals(_min, value))
                     return;
-                GetValue(value, out _min);
+                _min = value;
+                Validate();
+                ParameterChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -78,11 +74,11 @@ namespace House
             get { return _max; }
             set
             {
-                if (_max == value)
+                if (Equals(_max, value))
                     return;
                 _max = value;
                 Validate();
-                GetValue(value, out _max);
+                ParameterChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -92,12 +88,20 @@ namespace House
         /// <param name="value">Начальное значение</param>
         /// <param name="min">Начальное минимальное значение</param>
         /// <param name="max">Начальное максимальное значение</param>
-        public Parameter(double value, double min, double max)
+        public HouseParameter(double value, double min, double max)
         {
             _value = value;
             _min = min;
             _max = max;
             Validate();
+            if (value >= Min && value <= Max)
+            {
+                _value = value;
+            }
+            else
+            {
+                throw new ValueException();
+            }
         }
 
         /// <summary>

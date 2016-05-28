@@ -16,3 +16,4 @@ C:\Users\Арсен\Desktop\HouseModel\HouseModel\HouseModel\obj\Debug\HouseMode
 C:\Users\Арсен\Desktop\HouseModel\HouseModel\HouseModel\obj\Debug\House.HouseForm.resources
 C:\Users\Арсен\Desktop\HouseModel\HouseModel\HouseModel\obj\Debug\HouseModel.Properties.Resources.resources
 C:\Users\Арсен\Desktop\HouseModel\HouseModel\HouseModel\obj\Debug\HouseModel.csproj.GenerateResource.Cache
+C:\Users\Арсен\Desktop\HouseModel\HouseModel\HouseModel\obj\Debug\House.ParameterObjectControl.resources

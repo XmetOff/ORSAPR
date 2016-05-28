@@ -16,7 +16,7 @@ namespace House
         /// <summary>
         /// Ссылка на приложение Инвентора
         /// </summary>
-        private Application _invApp;
+        public Application InventorApplication { get; set; }
 
         /// <summary>
         /// Документ в приложении
@@ -49,16 +49,16 @@ namespace House
         {
             try
             {
-                _invApp = (Application)Marshal.GetActiveObject("Inventor.Application");
+                InventorApplication = (Application)Marshal.GetActiveObject("Inventor.Application");
             }
             catch (Exception)
             {
                 try
                 {
-                    Type invAppType = Type.GetTypeFromProgID("Inventor.Application");
+                    Type _InventorApplicationType = Type.GetTypeFromProgID("Inventor.Application");
 
-                    _invApp = (Application)Activator.CreateInstance(invAppType);
-                    _invApp.Visible = true;
+                    InventorApplication = (Application)Activator.CreateInstance(_InventorApplicationType);
+                    InventorApplication.Visible = true;
 
                     //Note: if the Inventor session is left running after this
                     //form is closed, there will still an be and Inventor.exe 
@@ -75,14 +75,14 @@ namespace House
             }
 
             // В открытом приложении создаем документ
-            _partDoc = (PartDocument)_invApp.Documents.Add 
+            _partDoc = (PartDocument)InventorApplication.Documents.Add 
                 (DocumentTypeEnum.kPartDocumentObject,
-                    _invApp.FileManager.GetTemplateFile
+                    InventorApplication.FileManager.GetTemplateFile
                         (DocumentTypeEnum.kPartDocumentObject,
                             SystemOfMeasureEnum.kMetricSystemOfMeasure));
 
             _partDef = _partDoc.ComponentDefinition; //Описание документа
-            _transGeometry = _invApp.TransientGeometry; //инициализация метода геометрии
+            _transGeometry = InventorApplication.TransientGeometry; //инициализация метода геометрии
         }
 
         /// <summary>
@@ -241,7 +241,7 @@ namespace House
         /// <param name="material">Материал</param>
         public void ChangeMaterial(string material)
         {
-            PartDocument partDoc = (PartDocument)_invApp.ActiveDocument;
+            PartDocument partDoc = (PartDocument)InventorApplication.ActiveDocument;
 
             //Получаем библиотеку
             Materials materialsLibrary = partDoc.Materials;

@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions.cs" />
     <Compile Include="HouseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,12 +59,21 @@
     <Compile Include="HouseModel.cs" />
     <Compile Include="HouseProperties.cs" />
     <Compile Include="InventorApi.cs" />
-    <Compile Include="Parameter.cs" />
+    <Compile Include="HouseParameter.cs" />
+    <Compile Include="ParameterObjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ParameterObjectControl.Designer.cs">
+      <DependentUpon>ParameterObjectControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ParameterType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="HouseForm.resx">
       <DependentUpon>HouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ParameterObjectControl.resx">
+      <DependentUpon>ParameterObjectControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -74,6 +84,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
