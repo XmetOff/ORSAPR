@@ -55,11 +55,13 @@
             this.PeakLength = new House.ParameterObjectControl();
             this.DoorWidth = new House.ParameterObjectControl();
             this.DoorHeight = new House.ParameterObjectControl();
+            this.RunInventorButton = new System.Windows.Forms.Button();
+            this.SterssTestButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BuildHouseButton
             // 
-            this.BuildHouseButton.Location = new System.Drawing.Point(88, 370);
+            this.BuildHouseButton.Location = new System.Drawing.Point(142, 370);
             this.BuildHouseButton.Name = "BuildHouseButton";
             this.BuildHouseButton.Size = new System.Drawing.Size(89, 44);
             this.BuildHouseButton.TabIndex = 0;
@@ -286,11 +288,33 @@
             this.DoorHeight.Size = new System.Drawing.Size(110, 27);
             this.DoorHeight.TabIndex = 37;
             // 
+            // RunInventorButton
+            // 
+            this.RunInventorButton.Location = new System.Drawing.Point(47, 370);
+            this.RunInventorButton.Name = "RunInventorButton";
+            this.RunInventorButton.Size = new System.Drawing.Size(89, 44);
+            this.RunInventorButton.TabIndex = 40;
+            this.RunInventorButton.Text = "Запустить Inventor";
+            this.RunInventorButton.UseVisualStyleBackColor = true;
+            this.RunInventorButton.Click += new System.EventHandler(this.RunInventorButton_Click);
+            // 
+            // SterssTestButton
+            // 
+            this.SterssTestButton.Location = new System.Drawing.Point(94, 420);
+            this.SterssTestButton.Name = "SterssTestButton";
+            this.SterssTestButton.Size = new System.Drawing.Size(91, 37);
+            this.SterssTestButton.TabIndex = 41;
+            this.SterssTestButton.Text = "Нагрузочное тестирование";
+            this.SterssTestButton.UseVisualStyleBackColor = true;
+            this.SterssTestButton.Click += new System.EventHandler(this.SterssTestButton_Click);
+            // 
             // HouseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 426);
+            this.ClientSize = new System.Drawing.Size(280, 463);
+            this.Controls.Add(this.SterssTestButton);
+            this.Controls.Add(this.RunInventorButton);
             this.Controls.Add(this.PeakLength);
             this.Controls.Add(this.DoorWidth);
             this.Controls.Add(this.DoorHeight);
@@ -354,6 +378,8 @@
         private ParameterObjectControl DoorHeight;
         private ParameterObjectControl DoorWidth;
         private ParameterObjectControl PeakLength;
+        private System.Windows.Forms.Button RunInventorButton;
+        private System.Windows.Forms.Button SterssTestButton;
     }
 }
 

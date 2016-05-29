@@ -51,16 +51,12 @@ namespace House
         public void Build(HouseProperties houseProperties)
         {
             if (houseProperties == null) throw new AccessingNullException();
-            //const int stepCount = 1;
-
-            //ProgressBar progressBar = InventorApplication.CreateProgressBar(false, stepCount, "Построение жилого дома");
-            //progressBar.Message = @"Создание основной модели, пожалуйста подождите";
-            //progressBar.UpdateProgress();
             BuildHouse();
         }
 
+
         /// <summary>
-        /// Функция строит основу пятиступенчатого вала
+        /// Функция строит корпус дома
         /// </summary>
         private void BuildHouse()
         {
@@ -84,8 +80,6 @@ namespace House
             double yPoint;
             double smeshY;
             double smeshX;
-            HouseWidth = 400;
-            HouseLength = 100;
             int DoorDistance = 20;
             int PeakHeight = 2;
             int LowDistance = 5;
@@ -138,7 +132,7 @@ namespace House
             _api.DrawLine(HouseHeight, -5, HouseHeight, HouseLength+5);
             _api.DrawLine(HouseHeight+30,HouseLength/2);
             _api.CloseShape();
-            _api.Extrude(HouseWidth + 5);
+            _api.Extrude(HouseWidth + 10);
             
             // Дверь
             _api.MakeNewWorkingPlane(3,0);
@@ -151,7 +145,7 @@ namespace House
 
             // Балконы
 
-            /*
+            
             double xStep = 0;
             double yStep = 0;
 
@@ -175,47 +169,47 @@ namespace House
             _api.Extrude(2);
 
 
-            xPoint = 80;
+            
+            xPoint = (WindowDistanceHor + WindowWidth) * 2;
+            yPoint = (HouseHeight - WindowDistanceVer - WindowHeight / 2);
             xStep = 0;
-            yPoint = 220;
             yStep = 0;
 
-            _api.MakeNewWorkingPlane(3, -8);
-            for (int j = 0; j < 3; j++)
+
+            _api.MakeNewWorkingPlane(3, -BalconLength + 2);
+            for (int j = 0; j < BalconRow; j++)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < FloorsCount; i++)
                 {
-                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + xStep + 2, yPoint - 20 - yStep);
-                    _api.DrawRectangle(xPoint +xStep + 38, yPoint - yStep, xPoint + xStep + 38 + 2, yPoint - 20 - yStep);
-                    yStep += 40;
+                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + xStep + 2, yPoint - BalconHeight - yStep);
+                    _api.DrawRectangle(xPoint +xStep + BalconWidth-2, yPoint - yStep, xPoint + xStep + BalconWidth, yPoint - BalconHeight - yStep);
+                    yStep += WindowDistanceVer + WindowHeight;
                 }
-                xStep += 120;
+                xStep += (WindowDistanceHor + WindowWidth) * 3; ;
                 yStep = 0;
             }
-            _api.Extrude(8);
+            _api.Extrude(BalconLength - 2);
 
 
-            xPoint = 80;
-            yPoint = 200;
+            xPoint = (WindowDistanceHor + WindowWidth) * 2;
+            yPoint = (HouseHeight - WindowDistanceVer - WindowHeight / 2 - BalconHeight);
             yStep = 0;
             xStep = 0;
 
-            _api.MakeNewWorkingPlane(3, -10);
+            _api.MakeNewWorkingPlane(3, -BalconLength);
 
-            for (int j = 0; j<3; j++)
+            for (int j = 0; j<BalconRow; j++)
             {
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < FloorsCount; i++)
                 {
-                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + xStep + 40, yPoint + 2 - yStep);
-                    yStep += 40;
+                    _api.DrawRectangle(xPoint + xStep, yPoint - yStep, xPoint + xStep + BalconWidth, yPoint + 2 - yStep);
+                    yStep += WindowDistanceVer + WindowHeight;
                 }
-                xStep += 120;
+                xStep += (WindowDistanceHor + WindowWidth) * 3;
                 yStep = 0;
             }
 
-            _api.Extrude(10);
-            _api.ChangeMaterial(@"Серебро");
-            */
+            _api.Extrude(BalconLength);
 
             #endregion
         }

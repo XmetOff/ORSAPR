@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using HouseModel;
 using Inventor;
 using Application = Inventor.Application;
 
@@ -74,15 +75,21 @@ namespace House
                 }
             }
 
-            // В открытом приложении создаем документ
-            _partDoc = (PartDocument)InventorApplication.Documents.Add 
-                (DocumentTypeEnum.kPartDocumentObject,
-                    InventorApplication.FileManager.GetTemplateFile
-                        (DocumentTypeEnum.kPartDocumentObject,
-                            SystemOfMeasureEnum.kMetricSystemOfMeasure));
+            Initialization(InventorApplication);
+        }
 
-            _partDef = _partDoc.ComponentDefinition; //Описание документа
-            _transGeometry = InventorApplication.TransientGeometry; //инициализация метода геометрии
+        public void Initialization(Application InventorApplication)
+        {
+            if (InventorApplication == null) throw new AccessingNullException();
+
+            // В открытом приложении создаем метрическуюсборку
+            _partDoc = (PartDocument)InventorApplication.Documents.Add
+                (DocumentTypeEnum.kPartDocumentObject, InventorApplication.FileManager.GetTemplateFile
+                        (DocumentTypeEnum.kPartDocumentObject, SystemOfMeasureEnum.kMetricSystemOfMeasure));
+            //Описание документа
+            _partDef = _partDoc.ComponentDefinition;
+            //инициализация метода геометрии
+            _transGeometry = InventorApplication.TransientGeometry;
         }
 
         /// <summary>
@@ -239,25 +246,7 @@ namespace House
         /// Метод меняющий материал части
         /// </summary>
         /// <param name="material">Материал</param>
-        public void ChangeMaterial(string material)
-        {
-            PartDocument partDoc = (PartDocument)InventorApplication.ActiveDocument;
-
-            //Получаем библиотеку
-            Materials materialsLibrary = partDoc.Materials;
-
-            //Берем необходимый материал
-            Material myMaterial = materialsLibrary[material];
-
-            //Проверка на то, что материал входит в текущую библиотеку
-            Material tempMaterial = myMaterial.StyleLocation == StyleLocationEnum.kLibraryStyleLocation
-                ? myMaterial.ConvertToLocal()
-                : myMaterial;
-
-            //Меняем материал.
-            partDoc.ComponentDefinition.Material = tempMaterial;
-            partDoc.Update();
-        }
+       
         #endregion
     }
 }

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HouseModel", "HouseModel\HouseModel.csproj", "{293F5470-CD71-46F1-8966-038080C7F95A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{44242E0F-96AE-4F44-86F7-EA894E6DE8F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{293F5470-CD71-46F1-8966-038080C7F95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{293F5470-CD71-46F1-8966-038080C7F95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293F5470-CD71-46F1-8966-038080C7F95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44242E0F-96AE-4F44-86F7-EA894E6DE8F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44242E0F-96AE-4F44-86F7-EA894E6DE8F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44242E0F-96AE-4F44-86F7-EA894E6DE8F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44242E0F-96AE-4F44-86F7-EA894E6DE8F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
