@@ -61,7 +61,7 @@
             // 
             // BuildHouseButton
             // 
-            this.BuildHouseButton.Location = new System.Drawing.Point(142, 370);
+            this.BuildHouseButton.Location = new System.Drawing.Point(103, 370);
             this.BuildHouseButton.Name = "BuildHouseButton";
             this.BuildHouseButton.Size = new System.Drawing.Size(89, 44);
             this.BuildHouseButton.TabIndex = 0;
@@ -186,7 +186,7 @@
             // 
             // HouseWidth
             // 
-            this.HouseWidth.Location = new System.Drawing.Point(165, 22);
+            this.HouseWidth.Location = new System.Drawing.Point(181, 22);
             this.HouseWidth.Name = "HouseWidth";
             this.HouseWidth.Parameter = null;
             this.HouseWidth.Size = new System.Drawing.Size(110, 26);
@@ -194,7 +194,7 @@
             // 
             // HouseLength
             // 
-            this.HouseLength.Location = new System.Drawing.Point(165, 48);
+            this.HouseLength.Location = new System.Drawing.Point(181, 48);
             this.HouseLength.Name = "HouseLength";
             this.HouseLength.Parameter = null;
             this.HouseLength.Size = new System.Drawing.Size(110, 27);
@@ -202,7 +202,7 @@
             // 
             // FloorsCount
             // 
-            this.FloorsCount.Location = new System.Drawing.Point(165, 74);
+            this.FloorsCount.Location = new System.Drawing.Point(181, 74);
             this.FloorsCount.Name = "FloorsCount";
             this.FloorsCount.Parameter = null;
             this.FloorsCount.Size = new System.Drawing.Size(110, 28);
@@ -210,7 +210,7 @@
             // 
             // WindowHeight
             // 
-            this.WindowHeight.Location = new System.Drawing.Point(165, 100);
+            this.WindowHeight.Location = new System.Drawing.Point(181, 100);
             this.WindowHeight.Name = "WindowHeight";
             this.WindowHeight.Parameter = null;
             this.WindowHeight.Size = new System.Drawing.Size(110, 27);
@@ -218,7 +218,7 @@
             // 
             // WindowWidth
             // 
-            this.WindowWidth.Location = new System.Drawing.Point(165, 126);
+            this.WindowWidth.Location = new System.Drawing.Point(181, 126);
             this.WindowWidth.Name = "WindowWidth";
             this.WindowWidth.Parameter = null;
             this.WindowWidth.Size = new System.Drawing.Size(110, 27);
@@ -226,7 +226,7 @@
             // 
             // WindowDistanceHor
             // 
-            this.WindowDistanceHor.Location = new System.Drawing.Point(165, 152);
+            this.WindowDistanceHor.Location = new System.Drawing.Point(181, 152);
             this.WindowDistanceHor.Name = "WindowDistanceHor";
             this.WindowDistanceHor.Parameter = null;
             this.WindowDistanceHor.Size = new System.Drawing.Size(110, 29);
@@ -234,7 +234,7 @@
             // 
             // WindowDistanceVer
             // 
-            this.WindowDistanceVer.Location = new System.Drawing.Point(165, 178);
+            this.WindowDistanceVer.Location = new System.Drawing.Point(181, 178);
             this.WindowDistanceVer.Name = "WindowDistanceVer";
             this.WindowDistanceVer.Parameter = null;
             this.WindowDistanceVer.Size = new System.Drawing.Size(110, 28);
@@ -242,7 +242,7 @@
             // 
             // BalconHeight
             // 
-            this.BalconHeight.Location = new System.Drawing.Point(165, 204);
+            this.BalconHeight.Location = new System.Drawing.Point(181, 204);
             this.BalconHeight.Name = "BalconHeight";
             this.BalconHeight.Parameter = null;
             this.BalconHeight.Size = new System.Drawing.Size(110, 30);
@@ -250,7 +250,7 @@
             // 
             // BalconLength
             // 
-            this.BalconLength.Location = new System.Drawing.Point(165, 256);
+            this.BalconLength.Location = new System.Drawing.Point(181, 256);
             this.BalconLength.Name = "BalconLength";
             this.BalconLength.Parameter = null;
             this.BalconLength.Size = new System.Drawing.Size(110, 27);
@@ -258,7 +258,7 @@
             // 
             // BalconWidth
             // 
-            this.BalconWidth.Location = new System.Drawing.Point(165, 231);
+            this.BalconWidth.Location = new System.Drawing.Point(181, 231);
             this.BalconWidth.Name = "BalconWidth";
             this.BalconWidth.Parameter = null;
             this.BalconWidth.Size = new System.Drawing.Size(110, 26);
@@ -266,7 +266,7 @@
             // 
             // PeakLength
             // 
-            this.PeakLength.Location = new System.Drawing.Point(165, 334);
+            this.PeakLength.Location = new System.Drawing.Point(181, 334);
             this.PeakLength.Name = "PeakLength";
             this.PeakLength.Parameter = null;
             this.PeakLength.Size = new System.Drawing.Size(110, 30);
@@ -274,7 +274,7 @@
             // 
             // DoorWidth
             // 
-            this.DoorWidth.Location = new System.Drawing.Point(165, 308);
+            this.DoorWidth.Location = new System.Drawing.Point(181, 308);
             this.DoorWidth.Name = "DoorWidth";
             this.DoorWidth.Parameter = null;
             this.DoorWidth.Size = new System.Drawing.Size(110, 25);
@@ -282,7 +282,7 @@
             // 
             // DoorHeight
             // 
-            this.DoorHeight.Location = new System.Drawing.Point(165, 282);
+            this.DoorHeight.Location = new System.Drawing.Point(181, 282);
             this.DoorHeight.Name = "DoorHeight";
             this.DoorHeight.Parameter = null;
             this.DoorHeight.Size = new System.Drawing.Size(110, 27);
@@ -290,7 +290,7 @@
             // 
             // RunInventorButton
             // 
-            this.RunInventorButton.Location = new System.Drawing.Point(47, 370);
+            this.RunInventorButton.Location = new System.Drawing.Point(8, 370);
             this.RunInventorButton.Name = "RunInventorButton";
             this.RunInventorButton.Size = new System.Drawing.Size(89, 44);
             this.RunInventorButton.TabIndex = 40;
@@ -300,9 +300,9 @@
             // 
             // SterssTestButton
             // 
-            this.SterssTestButton.Location = new System.Drawing.Point(94, 420);
+            this.SterssTestButton.Location = new System.Drawing.Point(198, 370);
             this.SterssTestButton.Name = "SterssTestButton";
-            this.SterssTestButton.Size = new System.Drawing.Size(91, 37);
+            this.SterssTestButton.Size = new System.Drawing.Size(89, 44);
             this.SterssTestButton.TabIndex = 41;
             this.SterssTestButton.Text = "Нагрузочное тестирование";
             this.SterssTestButton.UseVisualStyleBackColor = true;
@@ -312,7 +312,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 463);
+            this.ClientSize = new System.Drawing.Size(296, 419);
             this.Controls.Add(this.SterssTestButton);
             this.Controls.Add(this.RunInventorButton);
             this.Controls.Add(this.PeakLength);
