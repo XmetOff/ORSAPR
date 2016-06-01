@@ -304,7 +304,7 @@
             this.SterssTestButton.Name = "SterssTestButton";
             this.SterssTestButton.Size = new System.Drawing.Size(89, 44);
             this.SterssTestButton.TabIndex = 41;
-            this.SterssTestButton.Text = "Нагрузочное тестирование";
+            this.SterssTestButton.Text = "Нагрузочное тестиование";
             this.SterssTestButton.UseVisualStyleBackColor = true;
             this.SterssTestButton.Click += new System.EventHandler(this.SterssTestButton_Click);
             // 

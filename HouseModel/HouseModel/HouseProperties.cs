@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using HouseModel;
 
 namespace House
 {
@@ -36,6 +38,10 @@ namespace House
                 {ParameterType.DoorWidth, new HouseParameter(15, 10, 20)},
                 {ParameterType.PeakLength, new HouseParameter(10, 5, 15)}
             };
+            foreach (var parameter in _parameters.Values)
+            {
+                parameter.ParameterChanged += ParameterOnParameterChanged;
+            }
         }
 
         /// <summary>
@@ -43,6 +49,26 @@ namespace House
         /// </summary>
         /// <param name="sender">Отправитель</param>
         /// <param name="e">Аргументы</param>
+        private void ParameterOnParameterChanged(object sender, EventArgs e)
+        {
+            Validate();
+        }
+
+        private void Validate()
+        {
+            
+            if (
+                _parameters[ParameterType.BalconWidth].Value <=
+                _parameters[ParameterType.WindowWidth].Value + _parameters[ParameterType.WindowDistanceHor].Value)
+            {
+                _parameters[ParameterType.BalconWidth].Validate();
+            }
+            else
+            {
+                MessageBox.Show(@"Значение ширины балкона больше суммы значений ширины окна и расстояния между окнами (по горизонтали)!");
+            }
+
+        }
 
         /// <summary>
         /// Получить параметр

@@ -34,10 +34,12 @@ namespace House
         /// </summary>
         private TransientGeometry _transGeometry;
 
-       /// <summary>
+        /// <summary>
         /// Текущий скетч
         /// </summary>
         private PlanarSketch _currentSketch;
+
+        private double divider = 10.0;
 
         #endregion
 
@@ -78,6 +80,9 @@ namespace House
             Initialization(InventorApplication);
         }
 
+        /// <summary>
+        /// Инициализация приложения
+        /// </summary>
         public void Initialization(Application InventorApplication)
         {
             if (InventorApplication == null) throw new AccessingNullException();
@@ -100,8 +105,9 @@ namespace House
         public void MakeNewWorkingPlane(int n, double offset)
         {
             var mainPlane = _partDef.WorkPlanes[n];
-            var offsetPlane = _partDef.WorkPlanes.AddByPlaneAndOffset(mainPlane, offset / 10.0);
+            var offsetPlane = _partDef.WorkPlanes.AddByPlaneAndOffset(mainPlane, offset / divider);
             _currentSketch = _partDef.Sketches.Add(offsetPlane);
+            offsetPlane.Visible = false;
         }
 
         /// <summary>
@@ -113,10 +119,10 @@ namespace House
         /// <param name="pointTwoY">Правая нижняя координата Y</param>
         public void DrawRectangle(double pointOneX, double pointOneY, double pointTwoX, double pointTwoY)
         {
-            pointOneX /= 10.0;
-            pointOneY /= 10.0;
-            pointTwoX /= 10.0;
-            pointTwoY /= 10.0;
+            pointOneX /= divider;
+            pointOneY /= divider;
+            pointTwoX /= divider;
+            pointTwoY /= divider;
             var cornerPointOne = _transGeometry.CreatePoint2d(pointOneX, pointOneY);
             var cornerPointTwo = _transGeometry.CreatePoint2d(pointTwoX, pointTwoY);
             _currentSketch.SketchLines.AddAsTwoPointRectangle(cornerPointOne, cornerPointTwo);
@@ -131,9 +137,9 @@ namespace House
         /// <param name="diameter">Диаметр круга</param>
         public void DrawCircle(double centerPointX, double centerPointY, double diameter)
         {
-            centerPointX /= 10.0;
-            centerPointY /= 10.0;
-            diameter /= 10.0;
+            centerPointX /= divider;
+            centerPointY /= divider;
+            diameter /= divider;
             _currentSketch.SketchCircles.AddByCenterRadius(_transGeometry.CreatePoint2d(centerPointX, centerPointY), 
                 0.5 * diameter);
         }
@@ -152,7 +158,7 @@ namespace House
         }
 
         /// <summary>
-        /// Выдавить с вычитанием
+        /// Выдавить круг с вычитанием
         /// </summary>
         /// <param name="diameter">Диаметр круга</param>
         /// <param name="distance">Дистанция выдавливания</param>
@@ -163,23 +169,32 @@ namespace House
             DrawCircle(centerPointX, centerPointY, diameter);
             var extrudeDef = _partDef.Features.ExtrudeFeatures.CreateExtrudeDefinition(_currentSketch.Profiles.AddForSolid(), 
                 PartFeatureOperationEnum.kCutOperation);
-            extrudeDef.SetDistanceExtent(distance / 10.0, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
+            extrudeDef.SetDistanceExtent(distance / divider, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
             //TODO:
             var extrude = _partDef.Features.ExtrudeFeatures.Add(extrudeDef);
         }
 
+        /// <summary>
+        /// Выдавить прямоугольник с вычитанием
+        /// </summary>
+        /// <param name="distance">Дистанция выдавливания</param>
+        /// <param name="PointX">X координата центра</param>
+        /// <param name="pointOneX">Левая верхняя координата X</param>
+        /// <param name="pointOneY">Левая верхняя координата Y</param>
+        /// <param name="pointTwoX">Правая нижняя координата X</param>
+        /// <param name="pointTwoY">Правая нижняя координата Y</param>
         public void CutExtrudeRectangle(double pointOneX, double pointOneY, double pointTwoX, double pointTwoY, double distance)
         {
-            pointOneX /= 10.0;
-            pointOneY /= 10.0;
-            pointTwoX /= 10.0;
-            pointTwoY /= 10.0;
+            pointOneX /= divider;
+            pointOneY /= divider;
+            pointTwoX /= divider;
+            pointTwoY /= divider;
             var cornerPointOne = _transGeometry.CreatePoint2d(pointOneX, pointOneY);
             var cornerPointTwo = _transGeometry.CreatePoint2d(pointTwoX, pointTwoY);
             _currentSketch.SketchLines.AddAsTwoPointRectangle(cornerPointOne, cornerPointTwo);
             var extrudeDef = _partDef.Features.ExtrudeFeatures.CreateExtrudeDefinition(_currentSketch.Profiles.AddForSolid(), 
                 PartFeatureOperationEnum.kCutOperation);
-            extrudeDef.SetDistanceExtent(distance / 10.0, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
+            extrudeDef.SetDistanceExtent(distance / divider, PartFeatureExtentDirectionEnum.kPositiveExtentDirection);
             //TODO:
             var extrude = _partDef.Features.ExtrudeFeatures.Add(extrudeDef);
         }
@@ -210,10 +225,10 @@ namespace House
         /// <param name="endPointY">Конечная координата Y</param>
         public void DrawLine(double startPointX, double startPointY, double endPointX, double endPointY)
         {
-            startPointX /= 10.0;
-            startPointY /= 10.0;
-            endPointX /= 10.0;
-            endPointY /= 10.0;
+            startPointX /= divider;
+            startPointY /= divider;
+            endPointX /= divider;
+            endPointY /= divider;
             var startPoint = _transGeometry.CreatePoint2d(startPointX, startPointY);
             var endPoint = _transGeometry.CreatePoint2d(endPointX, endPointY);
             _currentSketch.SketchLines.AddByTwoPoints(startPoint, endPoint);
@@ -226,8 +241,8 @@ namespace House
         /// <param name="endPointY">Координата Y конца линии</param>
         public void DrawLine(double endPointX, double endPointY)
         {
-            endPointX /= 10.0;
-            endPointY /= 10.0;
+            endPointX /= divider;
+            endPointY /= divider;
             var endPoint = _transGeometry.CreatePoint2d(endPointX, endPointY);
             _currentSketch.SketchLines.AddByTwoPoints(_currentSketch.SketchLines[_currentSketch.SketchLines.Count].EndSketchPoint, endPoint);
         }
@@ -242,11 +257,6 @@ namespace House
                 _currentSketch.SketchLines[1].StartSketchPoint);
         }
 
-        /// <summary>
-        /// Метод меняющий материал части
-        /// </summary>
-        /// <param name="material">Материал</param>
-       
         #endregion
     }
 }

@@ -28,6 +28,9 @@ namespace House
         {
             InitializeComponent();
             InitParameters();
+#if !DEBUG
+            SterssTestButton.Visible = false;
+#endif
         }
 
         //TODO:
@@ -100,5 +103,8 @@ namespace House
         {
             StressTesting();
         }
+
+
+
     }
 }

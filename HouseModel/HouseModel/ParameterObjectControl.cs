@@ -5,18 +5,35 @@ namespace House
 {
     public partial class ParameterObjectControl : UserControl
     {
+        /// <summary>
+        /// Значения модели
+        /// </summary>
         private HouseParameter _parameter;
 
+        /// <summary>
+        /// Переменная для истиности отработки события.
+        /// </summary>
         private bool _inited;
 
+        /// <summary>
+        /// Обработчик прекращения изменения параметра.
+        /// </summary>
         private bool _parameterOnParameterChangedStopped;
 
+        /// <summary>
+        /// Создание экземпляра класса ParameterObjectContro
+        /// </summary>
         public ParameterObjectControl()
         {
             InitializeComponent();
             numericUpDown1.ValueChanged += NumericUpDown1OnValueChanged;
         }
 
+        /// <summary>
+        /// Обработчик события изменения значения контрола.
+        /// </summary>
+        /// <param name="sender">Отправитель события</param>
+        /// <param name="eventArgs">Параметры</param>
         private void NumericUpDown1OnValueChanged(object sender, EventArgs eventArgs)
         {
             if (!_inited)
@@ -31,6 +48,9 @@ namespace House
             _parameterOnParameterChangedStopped = false;
         }
 
+        /// <summary>
+        /// Свойства метода Parameter
+        /// </summary>
         public HouseParameter Parameter
         {
             get { return _parameter; }
@@ -58,6 +78,11 @@ namespace House
             }
         }
 
+        /// <summary>
+        /// Обаботчик события изменения параметра.
+        /// </summary>
+        /// <param name="sender">Отправитель события</param>
+        /// <param name="eventArgs">Параметры</param>
         private void ParameterOnParameterChanged(object sender, EventArgs eventArgs)
         {
             if (_parameterOnParameterChangedStopped || !_inited)
