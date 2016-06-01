@@ -22,6 +22,18 @@ namespace UnitTests
             Assert.DoesNotThrow(() => new HouseParameter(testValue, 0.0, 10.0));
         }
 
+        [TestCase(double.PositiveInfinity, TestName = "Вводимое значение параметра равно бесконечности")]
+        public void InfinityValueTest(double testValue)
+        {
+            Assert.Throws<ValueException>(() => new HouseParameter(testValue, 0.0, 10.0));
+        }
+
+        [TestCase(double.NaN, TestName = "Вводимое значение параметра равно Not-a-number")]
+        public void NanValueTest(double testValue)
+        {
+            Assert.Throws<ValueException>(() => new HouseParameter(testValue, 0.0, 10.0));
+        }
+
         [TestCase(double.MaxValue, TestName = "Максимальное значение параметра")]
         public void MaxValueTest(double testValue)
         {
@@ -45,6 +57,8 @@ namespace UnitTests
         {
             Assert.Throws<ValueException>(() => new HouseParameter(testValue, 0.0, 10.0));
         }
+
+
 
         [TestCase(5, TestName = "Тест того, что невалидное значение не сохраняется")]
         public void ValueIsNotSaved(double testValue)
