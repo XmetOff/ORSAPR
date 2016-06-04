@@ -118,6 +118,8 @@ namespace House
                 _value = Min;
             }
         }
+
+
         #endregion
     }
 }

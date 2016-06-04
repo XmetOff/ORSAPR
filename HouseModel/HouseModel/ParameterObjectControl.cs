@@ -83,7 +83,7 @@ namespace House
         /// </summary>
         /// <param name="sender">Отправитель события</param>
         /// <param name="eventArgs">Параметры</param>
-        private void ParameterOnParameterChanged(object sender, EventArgs eventArgs)
+        public void ParameterOnParameterChanged(object sender, EventArgs eventArgs)
         {
             if (_parameterOnParameterChangedStopped || !_inited)
                 return;

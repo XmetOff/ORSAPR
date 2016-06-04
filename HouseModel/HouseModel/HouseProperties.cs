@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using HouseModel;
+using Inventor;
 
 namespace House
 {
@@ -15,6 +16,10 @@ namespace House
         /// </summary>
         private readonly Dictionary<ParameterType, HouseParameter> _parameters;
 
+        private HouseParameter _parameter;
+        public event EventHandler ParameterChanged;
+
+
         #region Methods
 
         /// <summary>
@@ -24,7 +29,7 @@ namespace House
         {
             _parameters = new Dictionary<ParameterType, HouseParameter>
             {
-                {ParameterType.HouseWidth, new HouseParameter(400, 100, 500)},
+                {ParameterType.HouseWidth, new HouseParameter(400, 150, 500)},
                 {ParameterType.HouseLength, new HouseParameter(100, 50, 200)},
                 {ParameterType.FloorsCount, new HouseParameter(5, 2, 10)},
                 {ParameterType.WindowHeight, new HouseParameter(20, 15, 30)},
@@ -51,7 +56,18 @@ namespace House
         /// <param name="e">Аргументы</param>
         private void ParameterOnParameterChanged(object sender, EventArgs e)
         {
-            Validate();
+            try
+            {
+                Validate();
+            }
+            catch
+            {
+                MessageBox.Show(@"ай ай ай");
+
+                
+
+            }
+            
         }
 
         private void Validate()
@@ -65,7 +81,9 @@ namespace House
             }
             else
             {
-                MessageBox.Show(@"Значение ширины балкона больше суммы значений ширины окна и расстояния между окнами (по горизонтали)!");
+                _parameters[ParameterType.WindowWidth].Value = 20;
+                throw new ValueException();
+                
             }
 
         }

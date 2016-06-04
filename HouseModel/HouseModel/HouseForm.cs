@@ -35,9 +35,9 @@ namespace House
 
         //TODO:
         /// <summary>
-        /// 
+        /// Инициализация параетров в полях формы
         /// </summary>
-        private void InitParameters()
+        public void InitParameters()
         {
             HouseWidth.Parameter = _houseProperties.GetParameter(ParameterType.HouseWidth);
             HouseLength.Parameter = _houseProperties.GetParameter(ParameterType.HouseLength);
@@ -103,7 +103,6 @@ namespace House
         {
             StressTesting();
         }
-
 
 
     }
