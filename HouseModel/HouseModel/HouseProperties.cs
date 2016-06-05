@@ -29,7 +29,7 @@ namespace House
         {
             _parameters = new Dictionary<ParameterType, HouseParameter>
             {
-                {ParameterType.HouseWidth, new HouseParameter(400, 150, 500)},
+                {ParameterType.WindowsRow, new HouseParameter(10, 3, 12)},
                 {ParameterType.HouseLength, new HouseParameter(100, 50, 200)},
                 {ParameterType.FloorsCount, new HouseParameter(5, 2, 10)},
                 {ParameterType.WindowHeight, new HouseParameter(20, 15, 30)},
@@ -74,18 +74,59 @@ namespace House
         {
             
             if (
-                _parameters[ParameterType.BalconWidth].Value <=
-                _parameters[ParameterType.WindowWidth].Value + _parameters[ParameterType.WindowDistanceHor].Value)
+                _parameters[ParameterType.BalconWidth].Value >
+                _parameters[ParameterType.WindowWidth].Value)
             {
                 _parameters[ParameterType.BalconWidth].Validate();
             }
             else
             {
-                _parameters[ParameterType.WindowWidth].Value = 20;
+                _parameters[ParameterType.BalconWidth].Value = 40;
                 throw new ValueException();
             }
 
-            
+            double doorStartPoint;
+            double doorEndPoint;
+            double houseWidth;
+
+            doorStartPoint = ((_parameters[ParameterType.WindowWidth].Value +
+                               _parameters[ParameterType.WindowDistanceHor].Value)*
+                              _parameters[ParameterType.WindowsRow].Value +
+                              _parameters[ParameterType.WindowDistanceHor].Value/2)/2 -
+                             _parameters[ParameterType.DoorWidth].Value/2 - 2;
+
+            doorEndPoint = ((_parameters[ParameterType.WindowWidth].Value +
+                             _parameters[ParameterType.WindowDistanceHor].Value)*
+                            _parameters[ParameterType.WindowsRow].Value +
+                            _parameters[ParameterType.WindowDistanceHor].Value/2)/2 +
+                           _parameters[ParameterType.DoorWidth].Value/2 + 2;
+
+            houseWidth = (_parameters[ParameterType.WindowWidth].Value +
+                             _parameters[ParameterType.WindowDistanceHor].Value)*
+                            _parameters[ParameterType.WindowsRow].Value +
+                            _parameters[ParameterType.WindowDistanceHor].Value / 2;
+
+            if (
+                (_parameters[ParameterType.StartPoint].Value < doorStartPoint)  &&   
+                (_parameters[ParameterType.StartPoint].Value + _parameters[ParameterType.ArcWidth].Value < doorStartPoint)) 
+            {
+                _parameters[ParameterType.StartPoint].Validate();
+            }
+            else if (
+                (_parameters[ParameterType.StartPoint].Value > doorEndPoint) &&
+                (_parameters[ParameterType.StartPoint].Value + _parameters[ParameterType.ArcWidth].Value < houseWidth))
+            {
+                _parameters[ParameterType.StartPoint].Validate();
+            }
+            else
+            {
+                _parameters[ParameterType.StartPoint].Value = 5;
+                throw new ValueException();
+            }
+
+
+
+
 
         }
 

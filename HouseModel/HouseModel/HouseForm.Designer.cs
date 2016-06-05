@@ -56,7 +56,7 @@
             this.WindowHeight = new House.ParameterObjectControl();
             this.FloorsCount = new House.ParameterObjectControl();
             this.HouseLength = new House.ParameterObjectControl();
-            this.HouseWidth = new House.ParameterObjectControl();
+            this.WindowsRow = new House.ParameterObjectControl();
             this.ChangeArcComboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.ArcHeight = new House.ParameterObjectControl();
@@ -82,9 +82,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(5, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Ширина дома";
+            this.label1.Text = "Количество окон в ряду";
             // 
             // label2
             // 
@@ -308,13 +308,13 @@
             this.HouseLength.Size = new System.Drawing.Size(110, 27);
             this.HouseLength.TabIndex = 28;
             // 
-            // HouseWidth
+            // WindowsRow
             // 
-            this.HouseWidth.Location = new System.Drawing.Point(177, 48);
-            this.HouseWidth.Name = "HouseWidth";
-            this.HouseWidth.Parameter = null;
-            this.HouseWidth.Size = new System.Drawing.Size(110, 26);
-            this.HouseWidth.TabIndex = 27;
+            this.WindowsRow.Location = new System.Drawing.Point(177, 48);
+            this.WindowsRow.Name = "WindowsRow";
+            this.WindowsRow.Parameter = null;
+            this.WindowsRow.Size = new System.Drawing.Size(110, 26);
+            this.WindowsRow.TabIndex = 27;
             // 
             // ChangeArcComboBox
             // 
@@ -412,7 +412,7 @@
             this.Controls.Add(this.WindowHeight);
             this.Controls.Add(this.FloorsCount);
             this.Controls.Add(this.HouseLength);
-            this.Controls.Add(this.HouseWidth);
+            this.Controls.Add(this.WindowsRow);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
@@ -450,7 +450,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private ParameterObjectControl HouseWidth;
+        private ParameterObjectControl WindowsRow;
         private ParameterObjectControl HouseLength;
         private ParameterObjectControl FloorsCount;
         private ParameterObjectControl WindowHeight;

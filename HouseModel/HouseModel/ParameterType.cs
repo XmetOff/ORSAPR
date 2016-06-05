@@ -6,9 +6,9 @@
     public enum ParameterType
     {
         /// <summary>
-        /// Ширина дома (1)
+        /// Количество окон в ряду (1)
         /// </summary>
-        HouseWidth,
+        WindowsRow,
 
         /// <summary>
         /// Длина дома (2)

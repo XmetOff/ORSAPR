@@ -52,7 +52,7 @@ namespace House
         /// </summary>
         public void Build(HouseProperties houseProperties)
         {
-            var houseWidth = _houseProperties.GetParameter(ParameterType.HouseWidth).Value;
+            var windowsRow = _houseProperties.GetParameter(ParameterType.WindowsRow).Value;
             var houseLength = _houseProperties.GetParameter(ParameterType.HouseLength).Value;
             var floorsCount = _houseProperties.GetParameter(ParameterType.FloorsCount).Value;
             var windowHeight = _houseProperties.GetParameter(ParameterType.WindowHeight).Value;
@@ -70,7 +70,7 @@ namespace House
 
 
             double houseHeight;
-            double windowsRow;
+            double houseWidth;
             double balconRow;
             double doorDistance = 20.0;
             double peakHeight = 2.0;
@@ -78,8 +78,20 @@ namespace House
 
 
             houseHeight = (windowHeight + windowDistanceVer) * floorsCount + doorHeight + doorDistance + peakHeight + lowDistance;
-            windowsRow = Convert.ToInt32(houseWidth / (windowWidth + windowDistanceHor));
-            balconRow = Convert.ToInt32(windowsRow / 3);
+            houseWidth = (windowWidth + windowDistanceHor) * windowsRow + windowDistanceHor / 2;
+
+            if (windowsRow%3 == 2)
+            {
+                
+                balconRow = Convert.ToInt32(windowsRow / 3) - 1;
+            }
+            else
+            {
+                
+                balconRow = Convert.ToInt32(windowsRow / 3);
+            }
+            
+            
 
 
             ArrayList houseBuildingParameters = new ArrayList();
@@ -196,7 +208,7 @@ namespace House
             double LowDistance = (double)houseBuildingParameters[17];
 
             _api.MakeNewWorkingPlane(3, -peakLength);
-            _api.DrawRectangle(houseWidth / 2 - doorWidth / 2 - PeakHeight, doorHeight + LowDistance + 2, houseWidth / 2 + doorWidth / 2 + PeakHeight, doorHeight + LowDistance);
+            _api.DrawRectangle(houseWidth / 2 - doorWidth / 2 - 2, doorHeight + LowDistance + PeakHeight, houseWidth / 2 + doorWidth / 2 + 2, doorHeight + LowDistance);
             _api.Extrude(peakLength);
         }
 
@@ -219,7 +231,8 @@ namespace House
             double xStep = 0;
             double yStep = 0;
 
-            xPoint = (windowDistanceHor + windowWidth) * 2;
+            //xPoint = (windowDistanceHor + windowWidth) * 2;
+            xPoint = (windowDistanceHor/2 + windowWidth*2 + windowDistanceHor) + ((windowDistanceHor*2 + windowWidth - balconWidth)/2);
             yPoint = (HouseHeight - windowDistanceVer - windowHeight / 2);
 
 
@@ -238,7 +251,7 @@ namespace House
 
 
 
-            xPoint = (windowDistanceHor + windowWidth) * 2;
+            xPoint = (windowDistanceHor / 2 + windowWidth * 2 + windowDistanceHor) + ((windowDistanceHor * 2 + windowWidth - balconWidth) / 2);
             yPoint = (HouseHeight - windowDistanceVer - windowHeight / 2);
             xStep = 0;
             yStep = 0;
@@ -259,7 +272,7 @@ namespace House
             _api.Extrude(balconLength - 2);
 
 
-            xPoint = (windowDistanceHor + windowWidth) * 2;
+            xPoint = (windowDistanceHor / 2 + windowWidth * 2 + windowDistanceHor) + ((windowDistanceHor * 2 + windowWidth - balconWidth) / 2);
             yPoint = (HouseHeight - windowDistanceVer - windowHeight / 2 - balconHeight);
             yStep = 0;
             xStep = 0;
