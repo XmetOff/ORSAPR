@@ -41,7 +41,10 @@ namespace House
                 {ParameterType.BalconWidth, new HouseParameter(40, 30, 40)},
                 {ParameterType.DoorHeight, new HouseParameter(25, 20, 30)},
                 {ParameterType.DoorWidth, new HouseParameter(15, 10, 20)},
-                {ParameterType.PeakLength, new HouseParameter(10, 5, 15)}
+                {ParameterType.PeakLength, new HouseParameter(10, 5, 15)},
+                {ParameterType.ArcHeight, new HouseParameter(40, 30, 45)},
+                {ParameterType.ArcWidth, new HouseParameter(50, 30, 50)},
+                {ParameterType.StartPoint, new HouseParameter(5, 5, 440)}
             };
             foreach (var parameter in _parameters.Values)
             {
@@ -63,9 +66,6 @@ namespace House
             catch
             {
                 MessageBox.Show(@"ай ай ай");
-
-                
-
             }
             
         }
@@ -83,8 +83,9 @@ namespace House
             {
                 _parameters[ParameterType.WindowWidth].Value = 20;
                 throw new ValueException();
-                
             }
+
+            
 
         }
 

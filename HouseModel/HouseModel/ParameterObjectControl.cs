@@ -94,5 +94,21 @@ namespace House
             numericUpDown1.Value = Convert.ToDecimal(parameter.Value);
         }
 
+        private bool _readOnly;
+
+        public bool ReadOnly
+        {
+
+            set
+            {
+                _readOnly = value;
+                if (_readOnly)
+                    numericUpDown1.Enabled = false;
+                else
+                    numericUpDown1.Enabled = true;
+            }
+        }
+
+
     }
 }

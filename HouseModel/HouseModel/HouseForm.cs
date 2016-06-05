@@ -28,6 +28,10 @@ namespace House
         {
             InitializeComponent();
             InitParameters();
+
+            ChangeArcComboBox.Items.Add("Нет");
+            ChangeArcComboBox.Items.Add("Есть");
+            ChangeArcComboBox.SelectedIndex = 0;
 #if !DEBUG
             SterssTestButton.Visible = false;
 #endif
@@ -52,6 +56,9 @@ namespace House
             DoorWidth.Parameter = _houseProperties.GetParameter(ParameterType.DoorWidth);
             DoorHeight.Parameter = _houseProperties.GetParameter(ParameterType.DoorHeight);
             PeakLength.Parameter = _houseProperties.GetParameter(ParameterType.PeakLength);
+            ArcHeight.Parameter = _houseProperties.GetParameter(ParameterType.ArcHeight);
+            ArcWidth.Parameter = _houseProperties.GetParameter(ParameterType.ArcWidth);
+            StartPoint.Parameter = _houseProperties.GetParameter(ParameterType.StartPoint);
         }
 
         private void StressTesting()
@@ -80,6 +87,30 @@ namespace House
             file.Close();
         }
 
+
+        private void ChangeArcComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (ChangeArcComboBox.SelectedIndex)
+            {
+                case -1:
+                    MessageBox.Show("Выберите фигуру!");
+                    ArcHeight.ReadOnly = true;
+                    ArcWidth.ReadOnly = true;
+                    StartPoint.ReadOnly = true;
+                    break;
+                case 0:
+                    ArcHeight.ReadOnly = true;
+                    ArcWidth.ReadOnly = true;
+                    StartPoint.ReadOnly = true;
+                    break;
+                case 1:
+                    ArcHeight.ReadOnly = false;
+                    ArcWidth.ReadOnly = false;
+                    StartPoint.ReadOnly = false;
+                    break;
+            }
+        }
+
         /// <summary>
         /// Построение модели
         /// </summary>
@@ -91,7 +122,14 @@ namespace House
         {
             _inventorApi = new InventorApi();
             _houseModel = new HouseModel(_houseProperties, _inventorApi);
-            _houseModel.Build(_houseProperties);
+            if (ChangeArcComboBox.SelectedIndex == 0)
+            { _houseModel.Build(_houseProperties); }
+            if (ChangeArcComboBox.SelectedIndex == 1)
+            {
+                _houseModel.Build(_houseProperties);
+                _houseModel.BuildArc(_houseProperties);
+
+            }
         }
 
         private void RunInventorButton_Click(object sender, EventArgs e)

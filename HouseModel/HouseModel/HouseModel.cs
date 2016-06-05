@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 using HouseModel;
-using Inventor;
+using Application = Inventor.Application;
 
 namespace House
 {
@@ -65,17 +66,20 @@ namespace House
             var doorWidth = _houseProperties.GetParameter(ParameterType.DoorWidth).Value;
             var peakLength = _houseProperties.GetParameter(ParameterType.PeakLength).Value;
 
-            double HouseHeight;
-            double WindowsRow;
-            double BalconRow;
-            double DoorDistance = 20.0;
-            double PeakHeight = 2.0;
-            double LowDistance = 5.0;
 
 
-            HouseHeight = (windowHeight + windowDistanceVer) * floorsCount + doorHeight + DoorDistance + PeakHeight + LowDistance;
-            WindowsRow = Convert.ToInt32(houseWidth / (windowWidth + windowDistanceHor));
-            BalconRow = Convert.ToInt32(WindowsRow / 3);
+
+            double houseHeight;
+            double windowsRow;
+            double balconRow;
+            double doorDistance = 20.0;
+            double peakHeight = 2.0;
+            double lowDistance = 5.0;
+
+
+            houseHeight = (windowHeight + windowDistanceVer) * floorsCount + doorHeight + doorDistance + peakHeight + lowDistance;
+            windowsRow = Convert.ToInt32(houseWidth / (windowWidth + windowDistanceHor));
+            balconRow = Convert.ToInt32(windowsRow / 3);
 
 
             ArrayList houseBuildingParameters = new ArrayList();
@@ -93,12 +97,14 @@ namespace House
             houseBuildingParameters.Add(doorHeight);
             houseBuildingParameters.Add(doorWidth);
             houseBuildingParameters.Add(peakLength);
-            houseBuildingParameters.Add(WindowsRow);
-            houseBuildingParameters.Add(HouseHeight);
-            houseBuildingParameters.Add(DoorDistance);
-            houseBuildingParameters.Add(PeakHeight);
-            houseBuildingParameters.Add(LowDistance);
-            houseBuildingParameters.Add(BalconRow);
+            houseBuildingParameters.Add(windowsRow);
+            houseBuildingParameters.Add(houseHeight);
+            houseBuildingParameters.Add(doorDistance);
+            houseBuildingParameters.Add(peakHeight);
+            houseBuildingParameters.Add(lowDistance);
+            houseBuildingParameters.Add(balconRow);
+
+
 
 
             if (houseProperties == null) throw new AccessingNullException();
@@ -109,6 +115,8 @@ namespace House
             BuildPeak(houseBuildingParameters);
             BuildDoor(houseBuildingParameters);
         }
+
+  
 
         /// <summary>
         /// Функция строит окна дома
@@ -270,6 +278,17 @@ namespace House
             }
 
             _api.Extrude(balconLength);
+        }
+
+        public void BuildArc(HouseProperties houseProperties)
+        {
+            var startPoint = _houseProperties.GetParameter(ParameterType.StartPoint).Value;
+            var arcHeight = _houseProperties.GetParameter(ParameterType.ArcHeight).Value;
+            var arcWidth = _houseProperties.GetParameter(ParameterType.ArcWidth).Value;
+            var houseLength = _houseProperties.GetParameter(ParameterType.HouseLength).Value;
+
+            _api.MakeNewWorkingPlane(3, 0);
+            _api.CutExtrudeRectangle(startPoint, 0, arcWidth + startPoint, arcHeight, houseLength);
         }
 
         /// <summary>

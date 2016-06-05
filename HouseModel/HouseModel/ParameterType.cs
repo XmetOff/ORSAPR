@@ -68,6 +68,21 @@
         /// <summary>
         /// Длина козырька (13)
         /// </summary>
-        PeakLength
+        PeakLength,
+
+        /// <summary>
+        /// Высота арки (14)
+        /// </summary>
+        ArcHeight,
+
+        /// <summary>
+        /// Ширина арки (15)
+        /// </summary>
+        ArcWidth,
+
+        /// <summary>
+        /// Начало арки (16)
+        /// </summary>
+        StartPoint
     }
 }
