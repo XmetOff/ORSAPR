@@ -12,6 +12,8 @@ namespace HouseModel
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
+        /// HELLO EBA 
+
         [STAThread]
         static void Main()
         {
